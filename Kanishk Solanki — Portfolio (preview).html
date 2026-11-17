@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kanishk Solanki — Portfolio</title>
+  <style>
+/* ============================================================
+   Kanishk Solanki — portfolio
+   Three-colour scheme:
+     --ink    #14344A  deep slate blue   (text, dark surfaces)
+     --paper  #EDF1F4  cool pale grey    (page background)
+     --accent #1F8A70  teal green        (highlights, hover)
+   ============================================================ */
+
+:root {
+  --ink: #14344A;
+  --paper: #EDF1F4;
+  --accent: #1F8A70;
+
+  --ink-soft: rgba(20, 52, 74, 0.68);
+  --rule: rgba(20, 52, 74, 0.16);
+  --surface: #FFFFFF;
+
+  --measure: 62ch;
+  --gap: 1.75rem;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+/* ---------- Masthead ---------- */
+
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 2rem 1.5rem 3.25rem;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 0 0 3.5rem;
+  padding: 0;
+}
+
+.nav a {
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  color: #FFFFFF;
+  border-bottom-color: var(--accent);
+}
+
+h1 {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 11vw, 4.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+}
+
+.masthead-line {
+  margin: 1rem 0 0;
+  max-width: 42ch;
+  color: rgba(237, 241, 244, 0.78);
+  font-size: 1.02rem;
+}
+
+/* ---------- Sections ---------- */
+
+main {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.section:last-of-type { border-bottom: none; }
+
+h2 {
+  margin: 0 0 1.5rem;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  letter-spacing: -0.01em;
+}
+
+.prose p {
+  max-width: var(--measure);
+  margin: 0 0 1rem;
+}
+
+.prose p:last-child { margin-bottom: 0; }
+
+.placeholder {
+  color: var(--ink-soft);
+  border-left: 3px solid var(--accent);
+  padding-left: 0.9rem;
+}
+
+/* ---------- Skills ---------- */
+
+.skills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.skills li {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.45rem 1.05rem;
+  font-size: 0.95rem;
+  cursor: default;
+  transition: background-color 0.18s ease, color 0.18s ease,
+              border-color 0.18s ease, transform 0.18s ease;
+}
+
+.skills li:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* ---------- Projects ---------- */
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--gap);
+}
+
+.project {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--rule);
+  padding: 1.5rem;
+  transition: border-left-color 0.2s ease, box-shadow 0.2s ease,
+              transform 0.2s ease;
+}
+
+.project:hover {
+  border-left-color: var(--accent);
+  box-shadow: 0 10px 24px rgba(20, 52, 74, 0.12);
+  transform: translateY(-3px);
+}
+
+.project h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.project .placeholder {
+  margin: 0 0 1.1rem;
+  font-size: 0.97rem;
+}
+
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.tags li {
+  font-size: 0.8rem;
+  color: var(--accent);
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  padding: 0.15rem 0.5rem;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  background: var(--ink);
+  color: rgba(237, 241, 244, 0.75);
+  margin-top: 2.5rem;
+  padding: 1.75rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.footer p { margin: 0; }
+
+/* ---------- Focus & motion ---------- */
+
+a:focus-visible,
+.project:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* ---------- Small screens (375px and below) ---------- */
+
+@media (max-width: 420px) {
+  body { font-size: 16px; }
+
+  .masthead { padding: 1.5rem 1.15rem 2.5rem; }
+
+  .nav ul {
+    gap: 1.1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  main { padding: 0 1.15rem; }
+
+  .section { padding: 2.25rem 0; }
+
+  .projects { grid-template-columns: 1fr; }
+
+  .project { padding: 1.2rem; }
+
+  .footer { padding: 1.5rem 1.15rem; }
+}
+
+  </style>
+</head>
+<body>
+
+  <header class="masthead">
+    <nav class="nav" aria-label="Section navigation">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </nav>
+
+    <h1>Kanishk Solanki</h1>
+    <p class="masthead-line">Machine learning, exploratory analysis and prompt engineering.</p>
+  </header>
+
+  <main>
+
+    <section id="about" class="section">
+      <h2>About</h2>
+      <div class="prose">
+        <p>
+          I work with data end to end: exploring it, modelling it, and turning the
+          result into something a person can actually read and act on. My focus areas
+          are machine learning model development, exploratory data analysis and
+          prompt engineering for language models.
+        </p>
+        <p class="placeholder">
+          <!-- Replace this paragraph with your own background, education and interests. -->
+          Add two or three sentences here about your background, what you are studying
+          or working on now, and the kind of problems you want to work on next.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <ul class="skills">
+        <li>Prompt Engineering</li>
+        <li>AI &amp; ML</li>
+        <li>EDA</li>
+        <li>ML Model Development</li>
+        <li>Data Visualization</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="projects">
+
+        <article class="project">
+          <h3>Student Attrition Prediction</h3>
+          <p class="placeholder">
+            <!-- Replace with a short description: data used, method, and result. -->
+            Describe the dataset, the modelling approach and what the results showed.
+          </p>
+          <ul class="tags">
+            <li>ML Model Development</li>
+            <li>EDA</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>NoBrokerage.com Chatbot</h3>
+          <p class="placeholder">
+            <!-- Replace with a short description: what the chatbot does and how it was built. -->
+            Describe what the chatbot handles, how it was built and what it improved.
+          </p>
+          <ul class="tags">
+            <li>Prompt Engineering</li>
+            <li>AI &amp; ML</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Kanishk Solanki</p>
+  </footer>
+
+</body>
+</html>
